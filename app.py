@@ -81,13 +81,13 @@ def main():
      password = st.text_input("Password:", type="password")
 
     # Check if the login button is clicked
-    if st.button("Login"):
+     if st.button("Login"):
         # Perform authentication
-        if authenticate(username, password):
-            st.success("Login successful!")
+         if authenticate(username, password):
+             st.success("Login successful!")
             # Add your main application code here
-        else:
-            st.error("Invalid username or password. Please try again.")
+         else:
+             st.error("Invalid username or password. Please try again.")
 
     st.set_page_config("Chat PDF")
     st.header("Upload your pdf files and start asking questions")
