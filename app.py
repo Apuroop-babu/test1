@@ -67,8 +67,28 @@ def user_input(user_question):
 
     print(response)
     st.write("Reply: ", response["output_text"])
-
+def authenticate(username, password):
+    # Replace this function with your actual authentication logic
+    # For example, you might check credentials against a database
+    # In this example, we use a simple hardcoded check
+    return username == "demo" and password == "password"
+    
 def main():
+     st.title("Login Page")
+
+    # Input fields for username and password
+    username = st.text_input("Username:")
+    password = st.text_input("Password:", type="password")
+
+    # Check if the login button is clicked
+    if st.button("Login"):
+        # Perform authentication
+        if authenticate(username, password):
+            st.success("Login successful!")
+            # Add your main application code here
+        else:
+            st.error("Invalid username or password. Please try again.")
+
     st.set_page_config("Chat PDF")
     st.header("Upload your pdf files and start asking questions")
 
