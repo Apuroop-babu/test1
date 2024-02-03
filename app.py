@@ -74,6 +74,10 @@ def authenticate(username, password):
     return username == "demo" and password == "password"
     
 def main():
+     st.set_page_config("Chat PDF")
+     st.header("Upload your pdf files and start asking questions")
+
+     user_question = st.text_input("Ask a Question from the PDF Files")
      st.title("Login Page")
 
     # Input fields for username and password
@@ -88,11 +92,6 @@ def main():
             # Add your main application code here
          else:
              st.error("Invalid username or password. Please try again.")
-
-     st.set_page_config("Chat PDF")
-     st.header("Upload your pdf files and start asking questions")
-
-     user_question = st.text_input("Ask a Question from the PDF Files")
 
      if user_question:
          user_input(user_question)
