@@ -77,8 +77,8 @@ def main():
      st.title("Login Page")
 
     # Input fields for username and password
-    username = st.text_input("Username:")
-    password = st.text_input("Password:", type="password")
+     username = st.text_input("Username:")
+     password = st.text_input("Password:", type="password")
 
     # Check if the login button is clicked
     if st.button("Login"):
