@@ -67,6 +67,24 @@ def user_input(user_question):
 
     print(response)
     st.write("Reply: ", response["output_text"])
+    # Create a session state object to store user authentication state
+class SessionState:
+    def __init__(self):
+        self.logged_in = False
+
+# Create a session state instance
+session_state = SessionState()
+
+# Define a login function
+def login(username, password):
+    # Add your authentication logic here (e.g., check username and password against a database)
+    # For simplicity, let's use a hardcoded username and password
+    if username == "admin" and password == "password":
+        session_state.logged_in = True
+        return True
+    else:
+        return False
+
 
     
 def main():
