@@ -88,6 +88,19 @@ def login(username, password):
 
     
 def main():
+      st.title("Streamlit Login Example")
+
+    if not session_state.logged_in:
+        # Display login form
+        username = st.text_input("Username:")
+        password = st.text_input("Password:", type="password")
+        if st.button("Login"):
+            if login(username, password):
+                st.success("Login successful! Redirecting to main app...")
+                # Redirect to the main app by reloading the page
+                st.experimental_rerun()
+
+    else:
      st.set_page_config("Chat PDF")
      st.header("Upload your pdf files and start asking questions")
 
