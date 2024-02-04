@@ -90,35 +90,35 @@ def login(username, password):
 def main():
       st.title("Streamlit Login Example")
 
-    if not session_state.logged_in:
-        # Display login form
-        username = st.text_input("Username:")
-        password = st.text_input("Password:", type="password")
-        if st.button("Login"):
-            if login(username, password):
-                st.success("Login successful! Redirecting to main app...")
-                # Redirect to the main app by reloading the page
-                st.experimental_rerun()
+      if not session_state.logged_in:
+          # Display login form
+          username = st.text_input("Username:")
+          password = st.text_input("Password:", type="password")
+          if st.button("Login"):
+              if login(username, password):
+                  st.success("Login successful! Redirecting to main app...")
+                  # Redirect to the main app by reloading the page
+                  st.experimental_rerun()
 
-    else:
-     st.set_page_config("Chat PDF")
-     st.header("Upload your pdf files and start asking questions")
+      else:
+       st.set_page_config("Chat PDF")
+       st.header("Upload your pdf files and start asking questions")
 
-     user_question = st.text_input("Ask a Question from the PDF Files")
+       user_question = st.text_input("Ask a Question from the PDF Files")
     
 
-     if user_question:
-         user_input(user_question)
+       if user_question:
+           user_input(user_question)
 
-     with st.sidebar:
-         st.title("Menu:")
-         pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True)
-         if st.button("Submit & Process"):
-             with st.spinner("Processing..."):
-                 raw_text = get_pdf_text(pdf_docs)
-                 text_chunks = get_text_chunks(raw_text)
-                 get_vector_store(text_chunks)
-                 st.success("Done")
+       with st.sidebar:
+           st.title("Menu:")
+           pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True)
+           if st.button("Submit & Process"):
+               with st.spinner("Processing..."):
+                   raw_text = get_pdf_text(pdf_docs)
+                   text_chunks = get_text_chunks(raw_text)
+                   get_vector_store(text_chunks)
+                   st.success("Done")
 
 if __name__ == "__main__":
     main()
