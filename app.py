@@ -97,10 +97,13 @@ def main():
           if st.button("Login"):
               if login(username, password):
                   st.success("Login successful! Redirecting to main app...")
+                  st.empty()
                   # Redirect to the main app by reloading the page
-                  st.rerun()
+                  main_app()
 
       else:
+          main_app()
+def main_app():
        st.set_page_config("Chat PDF")
        st.header("Upload your pdf files and start asking questions")
 
