@@ -104,7 +104,6 @@ def main():
       else:
           main_app()
 def main_app():
-       st.set_page_config("Chat PDF")
        st.header("Upload your pdf files and start asking questions")
 
        user_question = st.text_input("Ask a Question from the PDF Files")
